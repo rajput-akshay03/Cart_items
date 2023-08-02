@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import Spinner from "../components/Spinner"
 import Product from "../components/Product"
+import "./Home.css"
  const Home = ()=>{
     const url = "https://fakestoreapi.com/products"
-    const [loading,setLoading] = useState(false)
+    const [loading,setLoading] = useState(true)
     const [Posts,setPosts] = useState([]);
     async function fetchdata(){
         setLoading(true)
@@ -25,7 +26,7 @@ import Product from "../components/Product"
             {
                 loading ? <Spinner /> :
                 Posts.length>0 ? (
-                   <div>
+                   <div className="card">
                       {
                         Posts.map((post)=>
                         ( <Product key= {post.id} post={post} />))
